@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards Resumidos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Botões de Acessibilidade de Cor -->
     <div id="acessibilidade-cores">
-        <button onclick="mudarCor('')">Padrão</button>
-        <button onclick="mudarCor('protanopia')">Protanopia</button>
-        <button onclick="mudarCor('deuteranopia')">Deuteranopia</button>
-        <button onclick="mudarCor('tritanopia')">Tritanopia</button>
+        <button type="button" onclick="mudarCor('')">Padrão</button>
+        <button type="button" onclick="mudarCor('protanopia')">Protanopia</button>
+        <button type="button" onclick="mudarCor('deuteranopia')">Deuteranopia</button>
+        <button type="button" onclick="mudarCor('tritanopia')">Tritanopia</button>
     </div>
     <hr>
     
+    <!-- Tela do Menu -->
     <div id="menu">
         <h1>Escolha um Tema</h1>
         <h3>Trabalho IFA</h3>
-        <button onclick="escolherTema('Fisica')">Física e Tecnociência</button>
-        <button onclick="escolherTema('Programacao')">Programação</button>
-        <button onclick="escolherTema('Robotica')">Robótica</button>
+        <button type="button" onclick="escolherTema('Fisica')">Física e Tecnociência</button>
+        <button type="button" onclick="escolherTema('Programacao')">Programação</button>
+        <button type="button" onclick="escolherTema('Robotica')">Robótica</button>
         
         <h3>Temas Divertidos</h3>
-        <button onclick="escolherTema('Sociedade')">Coisas Gerais</button>
+        <button type="button" onclick="escolherTema('Sociedade')">Coisas Gerais</button>
         
         <h3>Muito Difíceis</h3>
-        <button onclick="escolherTema('Dificeis')">Perguntas Difíceis</button>
+        <button type="button" onclick="escolherTema('Dificeis')">Perguntas Difíceis</button>
     </div>
 
+    <!-- Tela dos Flashcards -->
     <div id="estudo" style="display:none;">
-        <!-- Agora usamos 0.1 para aumentar 10% do tamanho total de tudo -->
-        <button onclick="mudarTamanho(0.1)">+ Tamanho</button>
-        <button onclick="mudarTamanho(-0.1)">- Tamanho</button>
-        <button onclick="lerTexto()">Ouvir</button>
-        <button onclick="voltarMenu()">Sair</button>
+        <button type="button" onclick="mudarTamanho(0.1)">+ Tamanho</button>
+        <button type="button" onclick="mudarTamanho(-0.1)">- Tamanho</button>
+        <button type="button" onclick="lerTexto()">Ouvir</button>
+        <button type="button" onclick="voltarMenu()">Sair</button>
 
         <div id="cartao">
             <h2 id="titulo-cartao"></h2>
             <p id="texto-cartao"></p>
         </div>
 
-        <button onclick="virar()">Virar Cartão</button><br><br>
+        <button type="button" onclick="virar()">Virar Cartão</button><br><br>
 
-        <button onclick="mudarCartao(-1)">Anterior</button>
+        <button type="button" onclick="mudarCartao(-1)">Anterior</button>
         <span id="contador"></span>
-        <button onclick="mudarCartao(1)">Próximo</button>
+        <button type="button" onclick="mudarCartao(1)">Próximo</button>
     </div>
 
     <script src="script.js"></script>

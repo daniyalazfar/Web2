@@ -1,5 +1,7 @@
-let cartoes = [], pos = 0, frente = true;
-let nivelZoom = 1; // 1 significa 100% do tamanho normal
+let cartoes = [];
+let pos = 0;
+let frente = true;
+let nivelZoom = 1;
 
 const bd = {
     "Fisica": [
@@ -39,34 +41,47 @@ const bd = {
     ]
 };
 
-function mudarCor(classe) { document.body.className = classe; }
+function mudarCor(classe) { 
+    document.body.className = classe; 
+}
 
 function escolherTema(tema) {
-    cartoes = bd[tema]; pos = 0; frente = true;
+    if (!bd[tema]) return;
+    cartoes = bd[tema]; 
+    pos = 0; 
+    frente = true;
     document.getElementById("menu").style.display = "none";
     document.getElementById("estudo").style.display = "block";
     atualizar();
 }
 
 function atualizar() {
-    document.getElementById("titulo-cartao").innerText = frente ? "Pergunta " : "Resposta";
+    if (cartoes.length === 0) return;
+    document.getElementById("titulo-cartao").innerText = frente ? "Pergunta" : "Resposta";
     document.getElementById("texto-cartao").innerText = frente ? cartoes[pos].f : cartoes[pos].v;
     document.getElementById("contador").innerText = (pos + 1) + " de " + cartoes.length;
 }
 
-function virar() { frente = !frente; atualizar(); }
+function virar() { 
+    frente = !frente; 
+    atualizar(); 
+}
 
 function mudarCartao(passo) {
     let novaPos = pos + passo;
     if (novaPos >= 0 && novaPos < cartoes.length) {
-        pos = novaPos; frente = true; atualizar();
+        pos = novaPos; 
+        frente = true; 
+        atualizar();
     }
 }
 
-// Essa funcao agora aumenta TUDO na tela de uma vez só!
 function mudarTamanho(valor) {
-    nivelZoom = nivelZoom + valor;
-    document.body.style.zoom = nivelZoom;
+    nivelZoom += valor;
+    if (nivelZoom < 0.6) nivelZoom = 0.6;
+    if (nivelZoom > 1.8) nivelZoom = 1.8;
+    document.body.style.transform = "scale(" + nivelZoom + ")";
+    document.body.style.transformOrigin = "top center";
 }
 
 function voltarMenu() {
@@ -76,6 +91,9 @@ function voltarMenu() {
 
 function lerTexto() {
     window.speechSynthesis.cancel();
-    let fala = new SpeechSynthesisUtterance(document.getElementById("texto-cartao").innerText);
-    fala.lang = "pt-BR"; window.speechSynthesis.speak(fala);
+    let texto = document.getElementById("texto-cartao").innerText;
+    if (!texto) return;
+    let fala = new SpeechSynthesisUtterance(texto);
+    fala.lang = "pt-BR"; 
+    window.speechSynthesis.speak(fala);
 }

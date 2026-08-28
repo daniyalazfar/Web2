@@ -1,22 +1,74 @@
-body { font-family: Arial; text-align: center; background: #e6e6e6; transition: 0.5s; margin-top: 20px;}
-button { background: #222; color: #fff; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; transition: 0.2s; }
-button:hover { transform: scale(1.05); }
-#menu button { display: inline-block; width: 220px; }
+body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    background: #e6e6e6; 
+    transition: 0.5s; 
+    margin-top: 20px;
+}
 
-#cartao { background: #fff; border: 4px solid #222; width: 600px; height: 300px; margin: 20px auto; padding: 20px; display: flex; flex-direction: column; justify-content: center; border-radius: 10px; box-shadow: 2px 5px 10px rgba(0,0,0,0.2); transition: 0.3s; }
-#titulo-cartao { color: #666; margin: 0; }
-#texto-cartao { font-size: 24px; transition: 0.3s; }
-#contador { font-weight: bold; margin: 0 15px; }
+button { 
+    background: #222; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 15px; 
+    margin: 5px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: 0.2s; 
+}
+
+button:hover { 
+    transform: scale(1.05); 
+}
+
+#menu button { 
+    display: inline-block; 
+    width: 220px; 
+}
+
+#cartao { 
+    background: #fff; 
+    border: 4px solid #222; 
+    width: 600px; 
+    max-width: 90%;
+    height: 300px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    border-radius: 10px; 
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.2); 
+    transition: 0.3s; 
+}
+
+#titulo-cartao { 
+    color: #666; 
+    margin: 0; 
+}
+
+#texto-cartao { 
+    font-size: 24px; 
+    transition: 0.3s; 
+}
+
+#contador { 
+    font-weight: bold; 
+    margin: 0 15px; 
+}
 
 /* Acessibilidade - Daltonismo */
 body.protanopia { background: #1a4f8b; color: #ffd700; }
 body.protanopia button { background: #ffd700; color: #1a4f8b; }
-body.protanopia #cartao { border-color: #ffd700; }
+body.protanopia #cartao { border-color: #ffd700; background: #1a4f8b; color: #ffd700; }
+body.protanopia #titulo-cartao { color: #ffd700; }
 
 body.deuteranopia { background: #002244; color: #ffcc00; }
 body.deuteranopia button { background: #ffcc00; color: #002244; }
-body.deuteranopia #cartao { border-color: #ffcc00; }
+body.deuteranopia #cartao { border-color: #ffcc00; background: #002244; color: #ffcc00; }
+body.deuteranopia #titulo-cartao { color: #ffcc00; }
 
 body.tritanopia { background: #8b0000; color: #00ffff; }
 body.tritanopia button { background: #00ffff; color: #8b0000; }
-body.tritanopia #cartao { border-color: #00ffff; }
+body.tritanopia #cartao { border-color: #00ffff; background: #8b0000; color: #00ffff; }
+body.tritanopia #titulo-cartao { color: #00ffff; }
