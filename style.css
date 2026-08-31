@@ -57,7 +57,6 @@ button:hover {
     margin: 0 15px; 
 }
 
-/* Acessibilidade - Daltonismo */
 body.protanopia { background: #1a4f8b; color: #ffd700; }
 body.protanopia button { background: #ffd700; color: #1a4f8b; }
 body.protanopia #cartao { border-color: #ffd700; background: #1a4f8b; color: #ffd700; }
